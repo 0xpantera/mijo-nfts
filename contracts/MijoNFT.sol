@@ -27,7 +27,9 @@ import "hardhat/console.sol";
          _safeMint(msg.sender, newItemId);
 
          // Set the NFTs data.
-         _setTokenURI(newItemId, "blah");
+         _setTokenURI(newItemId, "https://jsonkeeper.com/b/R6JH");
+         console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+
 
          // Increment the counter for when the next NFT is minted.
          _tokenIds.increment();
