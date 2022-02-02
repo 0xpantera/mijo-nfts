@@ -25,6 +25,8 @@ contract MijoNFT is ERC721URIStorage {
     string[] secondWords = ["Chispudo", "Guapo", "Sheca", "Baboso", "Mula", "Cerote", "Trompudo", "Yuca", "Pistudo", "Bracas", "Deahuevo", "Shute", "Culebra"];
     string[] thirdWords = ["Bolo", "Caquero", "Casaquero", "Clavero", "Chambeador", "Gallo", "Pajero", "Borracho", "Tikinay", "Basura", "Shuco", "Gato", "Parrandero"];
 
+    event NewMijoNFTMinted(address sender, uint256 tokenId);
+
     // Need to pass the name of the NFT token and its symbol.
     constructor() ERC721 ("MijoNFT", "MIJO") {
         console.log("Mijo NFT contract. LFG!");
@@ -113,5 +115,7 @@ contract MijoNFT is ERC721URIStorage {
 
         // Increment the counter for when the next NFT is minted.
         _tokenIds.increment();
+
+        emit NewMijoNFTMinted(msg.sender, newItemId);
      }
  }
